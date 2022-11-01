@@ -1,0 +1,98 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1in]{geometry} % full-width
+    \topskip        =   20pt
+    \parskip        =   10pt
+    \parindent      =   0 pt
+    \baselineskip   =   15pt
+\usepackage{amssymb, amsfonts, amsmath}
+\usepackage{bm}
+\usepackage{amsmath}
+\usepackage{booktabs}  % neatly formatting lines
+\usepackage{threeparttable}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{mathtools}
+\usepackage{subfig}
+\usepackage[shortlabels]{enumitem}
+
+%Russian-specific packages
+%--------------------------------------
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+\newcommand{\bo}[1]{\mathbf{#1}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Y}{X_i'\beta + u_i}
+\newcommand{\img}[3]{
+    \begin{figure*}[!hbtp]
+        \centering
+        \caption{#3}
+        \includegraphics[scale=#2]{#1}
+    \end{figure*}
+}
+\newcommand{\imgs}[4]{
+    \begin{figure}[!hbtp]
+        \centering
+        \begin{minipage}{.5\textwidth}
+            \centering
+            \includegraphics[width=.9\linewidth]{#1}
+            \captionof{figure}{#3}
+        \end{minipage}
+        \begin{minipage}{.49\textwidth}
+            \centering
+            \includegraphics[width=.9\linewidth]{#2}
+            \captionof{figure}{#4}
+        \end{minipage}
+    \end{figure}
+}
+
+\begin{document}
+\section*{Мотивация}
+Хотим решать задачу по поиску оптимальных весов портфеля:
+\begin{gather*}
+    \frac{1}{2}\omega V \omega' \to \max \\
+    \text{s.t}~~ \omega'a = 1
+\end{gather*}
+Выпуклая оптимизация (см. приложение) дает следующее решение:
+\[
+    \hat\omega = \frac{V^{-1}a}{a'V^{-1}a}
+\]
+Как можно видеть из формулы, необходимо оборачивать ковариационную
+матрицу доходностей бумаг, из которых мы собираем портфель.
+Сама по себе ковариационная матрица случайна, поскольку
+мы получаем её оценки на основе данных, используя ММП.
+Эмпирика показывает, что оценки весов не робастны, что частично
+объясняется высокой чувствительностью решения к оборачиваемости
+матрицы ковариаций.
+
+\subsection*{Что дает теория случайных матриц}
+
+
+
+Определитель случайной матрицы выражается через свои собственные значения следующим
+образом:
+\[
+    \det X = \prod_{k=1}^{K} \lambda_k
+\]
+
+\section*{Приложение}
+Решение методом Лагранжа:
+\begin{align*}
+    \mathcal{L} = \frac{1}{2}\omega V \omega' + \lambda\left(1 - \omega'a  \right) \to\max_{\omega}
+\end{align*}
+FOCs:
+\begin{align*}
+    \frac{\partial \mathcal{L}}{\partial \omega}  & = V\hat{w} - \lambda a = 0 \\
+    \frac{\partial \mathcal{L}}{\partial \lambda} & = 1 -  \hat{w}'a = 0       \\
+\end{align*}
+Ковариационная матрица оборачиваема, значит:
+\[
+    \hat{w} = \lambda V^{-1}a \to 1 = \lambda a' V^{-1}a \to \lambda = \frac{1}{a'V^{-1}a}
+\]
+Таким образом:
+\[
+    \hat{w} = \frac{V^{-1}a}{a'V^{-1}a}
+\]
+\end{document}
