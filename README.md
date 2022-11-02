@@ -18,23 +18,18 @@ pip install -e .
 
 ├── examples
 │   └── block_simulated_optimization.ipynb
-│
 ├── reference
 │	└──...
-│
 ├── replication
 │   └── raw.ipynb
-│
 ├── robustcov
 │	├── denoiser.py
 │	├── optimizers.py
 │	├── runner.py
 │	├── sampler.py
 │	└── utils.py
-│
 ├── tests
-│	└──test_sampler.py
-│
+│	└── test_sampler.py
 ├── requirements.txt
 ├── setup.py
 └── README.MD
