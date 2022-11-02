@@ -1,8 +1,8 @@
 # A Robust Estimator of the Efficient Frontier
 
 ## 🔖 Contents
-- [🛠 Installation and Dependencies](https://github.com/danyanyam/robust_variance#-installation-and-dependencies)
-- [🗂 Folder structure](https://github.com/danyanyam/robust_variance#-folder-structure)
+- [🛠 Installation and Dependencies](https://github.com/danyanyam/robustcov#-installation-and-dependencies)
+- [🗂 Folder structure](https://github.com/danyanyam/robustcov#-folder-structure)
 
 ### 🛠 Installation and Dependencies
 `git clone` and `cd` to the folder with project and then use the following commands:
