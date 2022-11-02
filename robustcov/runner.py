@@ -52,8 +52,9 @@ class PortfolioCreater:
 
         for trial in range(self.trials):
 
-            if bool(self.print_every) & (trial % self.print_every == 0):
-                print(f'[{trial}/{self.trials}] done')
+            if bool(self.print_every):
+                if (trial % self.print_every == 0):
+                    print(f'[{trial}/{self.trials}] done')
 
             mu_simulated, cov_simulated = sampler.simulate()
             cov_denoised = denoiser.transform(cov_simulated)

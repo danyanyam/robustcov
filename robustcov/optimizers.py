@@ -75,14 +75,14 @@ class NCOOptimizer(AbstractOptimizer):
         if self.max_clusters is None:
             self.max_clusters = len(corr) // 2
 
-        assert self.max_clusters <= len(corr) // 2, "clusters are maximum half"
+        # assert self.max_clusters <= len(corr) // 2, "clusters are maximum half"
 
         # create random knn clustering
         for _ in range(self.n_init):
             for n_clusters in range(2, self.max_clusters + 1):
 
                 # clustering correlation matrix on specified number of blocks
-                kmeans_ = KMeans(n_clusters=n_clusters, n_init=1)
+                kmeans_ = KMeans(n_clusters=n_clusters, n_init=1,)
                 kmeans_ = kmeans_.fit(distance_matrix)
 
                 # evaluating metrics on each knn fit
