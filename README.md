@@ -22,8 +22,9 @@ investments and some analysis
 
 ```bash
 
-├── examples
-│   └── block_simulated_optimization.ipynb
+├── notebooks
+│   ├── block_simulated_optimization.ipynb
+│   └── portfolio_analysis.ipynb
 ├── reference
 │	└──...
 ├── replication
@@ -41,10 +42,17 @@ investments and some analysis
 └── README.MD
 ```
 
-1. In the folder `replication`, you can find raw code from the
-   [article](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3469961).
-
-2. In the folder `robustcov` you can find a bunch of scripts, that are used in examples folder.
+1. In folder `notebooks` you can find application of module on real-world
+   and synthetic data.
+2. In folder `reference` you can find some theoretical stuff i used to
+   maintain this project (kernel estimations, some formalism)
+3. In `replication` folder you will find code, provided by the authors of the
+   [article](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3469961),
+   that i refactored.
+4. In the folder `robustcov` you can find scripts from `replication`,
+   united in module that are used in `notebooks` folder.
+5. I wanted to cover module with tests, so the `tests` folder was created,
+   but i didnt have anough time for this
 
 ---
 
