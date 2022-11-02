@@ -119,11 +119,11 @@ results = numeric_example()
 ### 💴 Results
 
 - Denoising beats buy and hold:
-![strategy](./reference/buy_and_hold_vs_convex.png)
+![strategy](./reference/buy_and_hold_vs_convex.png)(check `notebooks/convex_optimization_on_denoised_cov.ipynb`)
 
 - If we create portfolios among assets available within each country,
 then convex optimization with denoising will incur significant alpha
-and sharpe ~1.5 - 4.
+and sharpe ~1.5 - 4. (check `notebooks/portfolio_analysis.ipynb`)
 - If we rebalance each `x` months our portfolio, solving
 task of sharpe maximization, using denoising, then we will be able
 to achieve Sharpe ratio of approximately 10. Strategy is most understandable
@@ -131,7 +131,7 @@ from the image below:
 ![strategy](./reference/main.png)
 For example for case, where `x=1`, corresponding cumulative returns had an interesting
 shape (check `notebooks/5_years_investment.ipynb`)
-![strategy](./reference/1mo.png)
+![strategy](./reference/rebalance_each_month.png)
 ---
 
 ### 📚 Author

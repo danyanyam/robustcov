@@ -22,6 +22,15 @@ class CovDenoiser(AbstractDenoiser):
         pts: int = 1000,
         kernel: str = 'gaussian'
     ) -> None:
+        """
+        Fits Marscenko distribution to simulated data
+
+        Args:
+            q (float): N/T
+            bandwidth (float): hyperparameter, controlling kernel smoothing
+            pts (int, optional): num of obs. Defaults to 1000.
+            kernel (str, optional): kernel smoothing. Defaults to 'gaussian'.
+        """
 
         self.q = q
         self.bandwidth = bandwidth
@@ -32,6 +41,14 @@ class CovDenoiser(AbstractDenoiser):
         assert self.bandwidth > 0
 
     def transform(self, cov: np.ndarray) -> np.ndarray:
+        """denoises provided covariance matrix
+
+        Args:
+            cov (np.ndarray): noisy covariance matrix
+
+        Returns:
+            np.ndarray: denoised covariance
+        """
 
         corr = cov2corr(cov)
 
@@ -54,6 +71,15 @@ class CovDenoiser(AbstractDenoiser):
         return corr2cov(corr_denoised, np.diag(cov)**.5)
 
     def _transform_pca(self, corr: np.ndarray) -> T[np.ndarray]:
+        """returns eigen values and eigen vectors of
+        correlation matrix
+
+        Args:
+            corr (np.ndarray): correlation matrix, same shape as covariance
+
+        Returns:
+            T[np.ndarray]: tuple of evalues and evectors
+        """
         # get eigen values, eigen vectors from a Hermitian matrix
         eigen_values, eigen_vectors = np.linalg.eigh(corr)
 
@@ -64,7 +90,16 @@ class CovDenoiser(AbstractDenoiser):
 
         return eigen_values, eigen_vectors
 
-    def _derive_max_eigen_value(self, eigen_values):
+    def _derive_max_eigen_value(self, eigen_values: np.ndarray)-> float:
+        """derives maximum expected eigenvalue, based on fitting
+        empirical pdf to theoretical
+
+        Args:
+            eigen_values (np.ndarray): list of eigen values
+
+        Returns:
+            float: maximum expected eigen value
+        """
         # Find max random eVal by fitting Marcenko's dist to the empirical one
         # this is done to define variance in order to use formula for maximum
         # eigen value
@@ -82,6 +117,15 @@ class CovDenoiser(AbstractDenoiser):
         return eigen_max
 
     def _sse_PDFs(self, var: float, eigen_values: np.ndarray) -> float:
+        """returns error of fitting empirical pdf
+
+        Args:
+            var (float): parameter, which is optimized
+            eigen_values (np.ndarray): eigen values
+
+        Returns:
+            float: error value
+        """
         # theoretical pdf
         theoretical_pdf = self._mp_PDF(var)
         # empirical pdf
@@ -125,8 +169,8 @@ class CovDenoiser(AbstractDenoiser):
         eigen_vectors: np.ndarray,
         save_top: int
     ) -> np.ndarray:
-        """shrinks the eigenvalues associated with noise, and returns a de-noised
-        correlation matrix"""
+        """shrinks the eigenvalues associated with noise, and returns a
+        de-noised correlation matrix"""
         # Remove noise from corr by fixing random eigenvalues
 
         # sorted by decreasing order

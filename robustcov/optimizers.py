@@ -75,7 +75,6 @@ class NCOOptimizer(AbstractOptimizer):
         if self.max_clusters is None:
             self.max_clusters = len(corr) // 2
 
-        # assert self.max_clusters <= len(corr) // 2, "clusters are maximum half"
 
         # create random knn clustering
         for _ in range(self.n_init):
