@@ -83,6 +83,12 @@ Basic usage is shown in the `notebooks` folder. The most straightforward is
 block simulated optimization, described in the article:
 
 ```python
+from robustcov.utils import init_mu_cov
+from robustcov.runner import PortfolioCreator
+from robustcov.optimizers import ConvexOptimizer
+from robustcov.optimizers import NCOOptimizer
+
+
 def numeric_example():
     np.random.seed(0)
 
@@ -102,7 +108,7 @@ def numeric_example():
     ]
 
     # init estimator
-    estimator = PortfolioCreater(optimizers=optimizers, print_every=10)
+    estimator = PortfolioCreator(optimizers=optimizers, print_every=10)
 
     # obtain matrix of weights, where rows - trials and columns -
     # simulated weights for corresponding assets
