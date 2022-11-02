@@ -13,6 +13,9 @@ investments and some analysis
 Also i provide some CAPM based calculations to estimate the amount of excess
 returns across the clusters in the `notebooks/convex_optimization_on_denoised_cov.ipynb`
 
+Solution to task of proposing portfolio can be found at
+`notebooks/5_years_investment.ipynb`
+
 Python version 3.8.10.
 
 ## 🔖 Contents

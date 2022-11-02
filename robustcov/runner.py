@@ -6,7 +6,7 @@ from robustcov.sampler import MultivariateNormalMuCovSampler
 from robustcov.denoiser import CovDenoiser
 
 
-class PortfolioCreater:
+class PortfolioCreator:
 
     def __init__(
         self,
