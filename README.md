@@ -4,6 +4,7 @@
 - [🛠 Installation and Dependencies](https://github.com/danyanyam/robustcov#-installation-and-dependencies)
 - [🗂 Folder structure](https://github.com/danyanyam/robustcov#-folder-structure)
 
+---
 ### 🛠 Installation and Dependencies
 `git clone` and `cd` to the folder with project and then use the following commands:
 
@@ -11,7 +12,7 @@
 pip install -r requirements.txt;
 pip install -e .
 ```
-
+---
 ### 🗂 Folder structure
 
 ```bash
@@ -39,3 +40,4 @@ pip install -e .
    [article](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3469961).
 
 2. In the folder `robustcov` you can find a bunch of scripts, that are used in examples folder.
+---
