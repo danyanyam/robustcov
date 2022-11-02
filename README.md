@@ -8,13 +8,20 @@ In the folder `notebooks` you can find application of NCO algorithm on the numer
 example from article (`notebooks/block_simulated_optimization.ipynb`) and
 real-world application on provided data as well as application for 5 years
 investments and some analysis
-(`notebooks/portfolio_analysis.ipynb`)
+(`notebooks/portfolio_analysis.ipynb`).
+
+Also i provide some CAPM based calculations to estimate the amount of excess
+returns across the clusters in the `notebooks/convex_optimization_on_denoised_cov.ipynb`
+
+Python version 3.8.10.
 
 ## 🔖 Contents
 
 - [🗂 Folder structure](https://github.com/danyanyam/robustcov#-folder-structure)
 - [🛠 Installation and Dependencies](https://github.com/danyanyam/robustcov#-installation-and-dependencies)
 - [💹 Usage](https://github.com/danyanyam/robustcov#-usage)
+- [💴 Results](https://github.com/danyanyam/robustcov#-results)
+- [📚 Author](https://github.com/danyanyam/robustcov#-author)
 
 ---
 
@@ -52,7 +59,7 @@ investments and some analysis
 4. In the folder `robustcov` you can find scripts from `replication`,
    united in module that are used in `notebooks` folder.
 5. I wanted to cover module with tests, so the `tests` folder was created,
-   but i didnt have anough time for this
+   but i didnt have enough time for this
 
 ---
 
@@ -103,3 +110,19 @@ def numeric_example():
 results = numeric_example()
 
 ```
+
+---
+
+### 💴 Results
+
+| Tables   |      Are      |   Cool |
+| -------- | :-----------: | -----: |
+| col 1 is | left-aligned  | \$1600 |
+| col 2 is |   centered    |   \$12 |
+| col 3 is | right-aligned |    \$1 |
+
+---
+
+### 📚 Author
+
+Repository is created by *dvbuchko@gmail.com*
