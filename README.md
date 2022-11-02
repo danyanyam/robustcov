@@ -129,6 +129,9 @@ task of sharpe maximization, using denoising, then we will be able
 to achieve Sharpe ratio of approximately 10. Strategy is most understandable
 from the image below:
 ![strategy](./reference/main.png)
+For example for case, where `x=1`, corresponding cumulative returns had an interesting
+shape (check `notebooks/5_years_investment.ipynb`)
+![strategy](./reference/1mo.png)
 ---
 
 ### 📚 Author
