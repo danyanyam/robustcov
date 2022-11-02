@@ -1,7 +1,7 @@
 # A Robust Estimator of the Efficient Frontier
 
 The repository contains a replication of the code from the article, as well as
-a module, named `robustcov` for simulating portfolio weights using the MCO
+a module, named `robustcov` for simulating portfolio weights using the NCO
 method, as well as convex optimization on a denoised covariance matrix.
 
 In the folder `notebooks` you can find application of NCO algorithm on the numeric
@@ -118,12 +118,17 @@ results = numeric_example()
 
 ### 💴 Results
 
-| Tables   |      Are      |   Cool |
-| -------- | :-----------: | -----: |
-| col 1 is | left-aligned  | \$1600 |
-| col 2 is |   centered    |   \$12 |
-| col 3 is | right-aligned |    \$1 |
+- Denoising beats buy and hold:
+![strategy](./reference/buy_and_hold_vs_convex.png)
 
+- If we create portfolios among assets available within each country,
+then convex optimization with denoising will incur significant alpha
+and sharpe ~1.5 - 4.
+- If we rebalance each `x` months our portfolio, solving
+task of sharpe maximization, using denoising, then we will be able
+to achieve Sharpe ratio of approximately 10. Strategy is most understandable
+from the image below:
+![strategy](./reference/main.png)
 ---
 
 ### 📚 Author
