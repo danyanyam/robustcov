@@ -117,7 +117,8 @@ results = numeric_example()
 ---
 
 ### 💴 Results
-
+- Implemented NCO denoising algorithm (as a part of `robustcov` module,
+you can find implementation specifically at `robustcov/optimizers.py` )
 - Denoising beats buy and hold:
 ![strategy](./reference/buy_and_hold_vs_convex.png)(check `notebooks/convex_optimization_on_denoised_cov.ipynb`)
 
