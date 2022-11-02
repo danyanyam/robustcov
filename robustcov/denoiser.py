@@ -5,16 +5,16 @@ from scipy.optimize import minimize, Bounds
 import pandas as pd
 from typing import List as L, Tuple as T
 
-from robvariance.utils import corr2cov, cov2corr
+from robustcov.utils import corr2cov, cov2corr
 
 
-class AbstractTransformer(ABC):
+class AbstractDenoiser(ABC):
     @abstractmethod
     def transform(self):
         ...
 
 
-class DenoiseCovTransformer(AbstractTransformer):
+class CovDenoiser(AbstractDenoiser):
     def __init__(
         self,
         q: float,

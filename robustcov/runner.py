@@ -1,9 +1,9 @@
 import numpy as np
 from typing import List as L
 
-from robvariance.optimizers import AbstractOptimizer
-from robvariance.sampler import MultivariateNormalMuCovSampler
-from robvariance.covariance_transformer import DenoiseCovTransformer
+from robustcov.optimizers import AbstractOptimizer
+from robustcov.sampler import MultivariateNormalMuCovSampler
+from robustcov.denoiser import CovDenoiser
 
 
 class PortfolioCreater:
@@ -43,7 +43,7 @@ class PortfolioCreater:
             shrink=self.shrink,
             time_periods=self.time_periods
         )
-        denoiser = DenoiseCovTransformer(
+        denoiser = CovDenoiser(
             q=self.time_periods / len(cov),
             bandwidth=self.bandwidth,
             pts=self.pts,

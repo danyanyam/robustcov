@@ -2,9 +2,10 @@ import numpy as np
 import pandas as pd
 from sklearn.cluster import KMeans
 from abc import ABC, abstractmethod
-from robvariance.utils import cov2corr
 from typing import Optional as O, Dict as D
 from sklearn.metrics import silhouette_samples
+
+from robustcov.utils import cov2corr
 
 
 class AbstractOptimizer(ABC):
